@@ -1,50 +1,165 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+  SYNC IMPACT REPORT
+  ==================
+  Version Change: N/A → 1.0.0
+  Type: Initial Ratification
+  Date: 2026-01-20
+  
+  Modified Principles:
+  - N/A (initial creation)
+  
+  Added Sections:
+  - Core Principles (5 principles)
+  - Technology Standards
+  - Development Workflow
+  - Governance
+  
+  Removed Sections:
+  - N/A
+  
+  Templates Status:
+  - ✅ plan-template.md: Reviewed - compatible with constitution
+  - ✅ spec-template.md: Reviewed - compatible with constitution
+  - ✅ tasks-template.md: Reviewed - compatible with constitution
+  
+  Follow-up TODOs:
+  - None
+-->
+
+# Antonio Alvarenga Personal Webpage Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Modern Tech Stack
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+The project MUST use current Long Term Support (LTS) versions of core technologies:
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+- **React**: Current LTS version only
+- **TypeScript**: Current LTS version only
+- **Testing Framework**: Jest as the primary testing framework
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Rationale**: LTS versions provide stability, security patches, and community support while avoiding bleeding-edge instability. This ensures long-term maintainability and reduces technical debt.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### II. Component-Driven Architecture
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+Components MUST follow these design principles:
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- **Reusability**: Create reusable components when it makes sense (shared patterns, repeated UI elements)
+- **Single Responsibility**: Each component should have one clear purpose
+- **Size Discipline**: Avoid huge components - break down complex UI into smaller, composable pieces
+- **Composition Over Complexity**: Favor component composition over monolithic implementations
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**Rationale**: Modular components improve maintainability, testability, and code reuse. Smaller components are easier to understand, debug, and refactor.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### III. Code Quality & Security (NON-NEGOTIABLE)
+
+All code MUST meet these standards:
+
+- **High Quality**: Clear naming, proper abstractions, documented where necessary, no code smells
+- **Security First**: Follow OWASP guidelines, sanitize inputs, secure authentication/authorization if applicable
+- **Type Safety**: Leverage TypeScript's type system fully - no `any` types without justification
+- **Linting & Formatting**: Automated tools (ESLint, Prettier) enforced in CI/CD
+- **Code Review**: All changes must pass review for quality and security concerns
+
+**Rationale**: Quality and security are non-negotiable. Technical debt and security vulnerabilities compound over time and become exponentially more expensive to fix.
+
+### IV. Test Coverage
+
+Testing requirements:
+
+- **Framework**: Jest MUST be used for all tests
+- **Test Types**: Unit tests for business logic, integration tests for critical user flows
+- **Coverage Goals**: Focus on critical paths and complex logic - test what matters
+- **Test Quality**: Tests should be readable, maintainable, and fast
+
+**Rationale**: Automated tests catch regressions early and serve as living documentation. Jest provides a comprehensive testing solution with good developer experience.
+
+### V. Performance & User Experience
+
+The application MUST be fast and consistent:
+
+- **Performance**: Fast load times, optimized bundles, lazy loading where appropriate
+- **UX Consistency**: Uniform design language, predictable interactions, accessible UI
+- **Responsiveness**: Mobile-first approach, works across devices and screen sizes
+- **Optimization**: Monitor bundle size, minimize dependencies, optimize assets
+
+**Rationale**: User experience directly impacts usability. Fast, consistent interfaces create trust and engagement. Performance is a feature, not an afterthought.
+
+## Technology Standards
+
+**Required Stack**:
+
+- **Frontend Framework**: React (current LTS)
+- **Language**: TypeScript (current LTS)
+- **Testing**: Jest
+- **Package Manager**: npm or yarn (document choice in README)
+- **Bundler**: Vite or Create React App (document choice in README)
+
+**Dependency Management**:
+
+- Minimize external dependencies - evaluate necessity vs. maintenance burden
+- Keep dependencies updated regularly
+- Document all major dependencies and their purpose
+- Security audit dependencies periodically
+
+**Build & Deploy**:
+
+- Automated builds in CI/CD
+- Environment-based configuration (dev, staging, prod)
+- Static asset optimization (minification, compression)
+
+## Development Workflow
+
+**Branching Strategy**:
+
+- Feature branches following naming convention: `###-feature-name`
+- Main branch protected - requires review and passing CI
+- Squash merge for clean history
+
+**Code Review Requirements**:
+
+- All changes require review
+- Verify constitution compliance (component size, quality, security)
+- Check test coverage for new features
+- Validate performance implications
+
+**Quality Gates**:
+
+- Linting passes (ESLint)
+- Formatting passes (Prettier)
+- Type checking passes (TypeScript compiler)
+- Tests pass (Jest)
+- Build succeeds
+
+**Documentation**:
+
+- README with setup instructions
+- Component documentation for reusable components
+- API documentation if backend exists
+- Update docs as part of feature delivery
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+**Amendment Process**:
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+- Constitution changes require documented rationale
+- Version bump according to semantic versioning:
+  - **MAJOR**: Principle removal or incompatible changes
+  - **MINOR**: New principles or expanded guidance
+  - **PATCH**: Clarifications, typos, non-semantic refinements
+- Update this file and sync dependent templates
+
+**Compliance**:
+
+- All pull requests must demonstrate constitution compliance
+- Violations must be justified in Complexity Tracking section of plan documents
+- Review process includes constitution check
+- Use `.specify/templates/` for consistent feature planning
+
+**Runtime Guidance**:
+
+- This constitution governs all development practices
+- Refer to specification templates in `.specify/templates/` for feature development workflow
+- Use command files in `.cursor/commands/` for guided development tasks
+
+**Version**: 1.0.0 | **Ratified**: 2026-01-20 | **Last Amended**: 2026-01-20
