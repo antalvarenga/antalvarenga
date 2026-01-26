@@ -34,9 +34,9 @@
 
 The project MUST use current Long Term Support (LTS) versions of core technologies:
 
-- **React**: Current LTS version only
+- **React**: Current LTS version only, using Vite
 - **TypeScript**: Current LTS version only
-- **Testing Framework**: Jest as the primary testing framework
+- **Testing Framework**: Vitest as the primary testing framework
 
 **Rationale**: LTS versions provide stability, security patches, and community support while avoiding bleeding-edge instability. This ensures long-term maintainability and reduces technical debt.
 
