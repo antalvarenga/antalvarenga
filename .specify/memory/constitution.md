@@ -1,27 +1,26 @@
 <!--
   SYNC IMPACT REPORT
   ==================
-  Version Change: N/A → 1.0.0
-  Type: Initial Ratification
-  Date: 2026-01-20
-  
+  Version Change: 1.0.0 → 1.1.0
+  Type: MINOR (material expansion: TDD requirement added)
+  Date: 2026-01-28
+
   Modified Principles:
-  - N/A (initial creation)
-  
+  - IV. Test Coverage → IV. Test-Driven Development (TDD) & Coverage
+    - Align framework text with Vitest
+    - Require Red-Green-Refactor for new/changed behavior
+
   Added Sections:
-  - Core Principles (5 principles)
-  - Technology Standards
-  - Development Workflow
-  - Governance
-  
+  - N/A (principle expanded/renamed; no new top-level sections)
+
   Removed Sections:
   - N/A
-  
+
   Templates Status:
-  - ✅ plan-template.md: Reviewed - compatible with constitution
-  - ✅ spec-template.md: Reviewed - compatible with constitution
-  - ✅ tasks-template.md: Reviewed - compatible with constitution
-  
+  - ✅ `.specify/templates/plan-template.md`: No changes required
+  - ✅ `.specify/templates/spec-template.md`: No changes required
+  - ✅ `.specify/templates/tasks-template.md`: No changes required
+
   Follow-up TODOs:
   - None
 -->
@@ -63,16 +62,21 @@ All code MUST meet these standards:
 
 **Rationale**: Quality and security are non-negotiable. Technical debt and security vulnerabilities compound over time and become exponentially more expensive to fix.
 
-### IV. Test Coverage
+### IV. Test-Driven Development (TDD) & Coverage
 
 Testing requirements:
 
-- **Framework**: Jest MUST be used for all tests
-- **Test Types**: Unit tests for business logic, integration tests for critical user flows
-- **Coverage Goals**: Focus on critical paths and complex logic - test what matters
-- **Test Quality**: Tests should be readable, maintainable, and fast
+- **Framework**: Vitest MUST be used for all tests.
+- **TDD (default)**: For any new behavior or behavior change, development MUST follow Red-Green-Refactor:
+  - **Red**: Write a failing test that captures the desired behavior (user-visible or business-meaningful).
+  - **Green**: Implement the minimum change to make the test pass.
+  - **Refactor**: Improve design/structure (including component decomposition) while keeping tests green.
+- **Exceptions**: Pure refactors MAY be done without writing new tests first, but MUST keep existing tests passing and MUST not change externally observable behavior.
+- **Test Types**: Unit tests for business logic and UI logic; integration tests for critical user flows (e.g., primary navigation and project expansion).
+- **Coverage Goals**: Focus on critical paths, regression-prone logic, and complex interactions — test what matters most.
+- **Test Quality**: Tests MUST be readable, deterministic, and fast (avoid flakiness and time-based waits when possible).
 
-**Rationale**: Automated tests catch regressions early and serve as living documentation. Jest provides a comprehensive testing solution with good developer experience.
+**Rationale**: TDD reduces regressions, improves design (especially component boundaries), and provides living documentation of intended behavior. Vitest aligns with Vite and TypeScript while keeping fast feedback loops.
 
 ### V. Performance & User Experience
 
@@ -91,9 +95,9 @@ The application MUST be fast and consistent:
 
 - **Frontend Framework**: React (current LTS)
 - **Language**: TypeScript (current LTS)
-- **Testing**: Jest
+- **Testing**: Vitest
 - **Package Manager**: npm or yarn (document choice in README)
-- **Bundler**: Vite or Create React App (document choice in README)
+- **Bundler**: Vite
 
 **Dependency Management**:
 
@@ -128,7 +132,7 @@ The application MUST be fast and consistent:
 - Linting passes (ESLint)
 - Formatting passes (Prettier)
 - Type checking passes (TypeScript compiler)
-- Tests pass (Jest)
+- Tests pass (Vitest)
 - Build succeeds
 
 **Documentation**:
@@ -162,4 +166,4 @@ The application MUST be fast and consistent:
 - Refer to specification templates in `.specify/templates/` for feature development workflow
 - Use command files in `.cursor/commands/` for guided development tasks
 
-**Version**: 1.0.0 | **Ratified**: 2026-01-20 | **Last Amended**: 2026-01-20
+**Version**: 1.1.0 | **Ratified**: 2026-01-20 | **Last Amended**: 2026-01-28

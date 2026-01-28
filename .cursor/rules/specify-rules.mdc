@@ -1,0 +1,30 @@
+# antonioalvarengavd Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2026-01-27
+
+## Active Technologies
+
+- TypeScript 5.x + React (current LTS, e.g., 18.x) + React, React DOM, Vite, Vitest, React Testing Library, ESLint, Prettier (001-dashboard-portfolio)
+
+## Project Structure
+
+```text
+backend/
+frontend/
+tests/
+```
+
+## Commands
+
+npm test && npm run lint
+
+## Code Style
+
+TypeScript 5.x + React (current LTS, e.g., 18.x): Follow standard conventions
+
+## Recent Changes
+
+- 001-dashboard-portfolio: Added TypeScript 5.x + React (current LTS, e.g., 18.x) + React, React DOM, Vite, Vitest, React Testing Library, ESLint, Prettier
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->
