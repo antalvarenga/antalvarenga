@@ -1,28 +1,32 @@
 <!--
   SYNC IMPACT REPORT
   ==================
-  Version Change: 1.0.0 → 1.1.0
-  Type: MINOR (material expansion: TDD requirement added)
-  Date: 2026-01-28
+  Version Change: 1.1.0 → 1.2.0
+  Type: MINOR (new requirement: accessibility standards)
+  Date: 2026-01-29
 
   Modified Principles:
-  - IV. Test Coverage → IV. Test-Driven Development (TDD) & Coverage
-    - Align framework text with Vitest
-    - Require Red-Green-Refactor for new/changed behavior
+  - V. Performance & User Experience
+    - Explicitly require WCAG 2.2 AA compliance
+    - Expand rationale to include accessibility as a core quality attribute
+
+  Modified Sections:
+  - Development Workflow > Quality Gates
+    - Added accessibility check to mandatory gates
 
   Added Sections:
-  - N/A (principle expanded/renamed; no new top-level sections)
+  - N/A
 
   Removed Sections:
   - N/A
 
   Templates Status:
-  - ✅ `.specify/templates/plan-template.md`: No changes required
+  - ✅ `.specify/templates/plan-template.md`: No changes required (dynamically linked)
   - ✅ `.specify/templates/spec-template.md`: No changes required
   - ✅ `.specify/templates/tasks-template.md`: No changes required
 
   Follow-up TODOs:
-  - None
+  - Ensure future feature specs include accessibility acceptance criteria
 -->
 
 # Antonio Alvarenga Personal Webpage Constitution
@@ -80,14 +84,15 @@ Testing requirements:
 
 ### V. Performance & User Experience
 
-The application MUST be fast and consistent:
+The application MUST be fast, consistent, and inclusive:
 
 - **Performance**: Fast load times, optimized bundles, lazy loading where appropriate
-- **UX Consistency**: Uniform design language, predictable interactions, accessible UI
+- **UX Consistency**: Uniform design language, predictable interactions
+- **Accessibility**: All UI MUST comply with WCAG 2.2 AA standards
 - **Responsiveness**: Mobile-first approach, works across devices and screen sizes
 - **Optimization**: Monitor bundle size, minimize dependencies, optimize assets
 
-**Rationale**: User experience directly impacts usability. Fast, consistent interfaces create trust and engagement. Performance is a feature, not an afterthought.
+**Rationale**: User experience directly impacts usability and reach. Fast, consistent, and accessible interfaces create trust and ensure everyone can use the system regardless of ability. Performance and accessibility are features, not afterthoughts.
 
 ## Technology Standards
 
@@ -123,7 +128,7 @@ The application MUST be fast and consistent:
 **Code Review Requirements**:
 
 - All changes require review
-- Verify constitution compliance (component size, quality, security)
+- Verify constitution compliance (component size, quality, security, accessibility)
 - Check test coverage for new features
 - Validate performance implications
 
@@ -133,6 +138,7 @@ The application MUST be fast and consistent:
 - Formatting passes (Prettier)
 - Type checking passes (TypeScript compiler)
 - Tests pass (Vitest)
+- Accessibility check (WCAG 2.2 AA compliance)
 - Build succeeds
 
 **Documentation**:
@@ -166,4 +172,4 @@ The application MUST be fast and consistent:
 - Refer to specification templates in `.specify/templates/` for feature development workflow
 - Use command files in `.cursor/commands/` for guided development tasks
 
-**Version**: 1.1.0 | **Ratified**: 2026-01-20 | **Last Amended**: 2026-01-28
+**Version**: 1.2.0 | **Ratified**: 2026-01-20 | **Last Amended**: 2026-01-29
