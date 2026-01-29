@@ -71,12 +71,19 @@ As a visitor, I want to navigate between capabilities, logs, and projects using 
 - How does the system handle very long project descriptions or complex architectures? The project expansion MUST constrain content within a well-defined area (with scroll or truncation) so the overall dashboard layout remains stable.
 - How does the site behave on smaller screens or narrow viewports? The dashboard MUST adapt to a single-column or simplified layout while preserving the “system console” feel and keeping all required panels discoverable.
 
-## Requirements *(mandatory)*
+## Dependencies and Assumptions
 
-<!--
-  ACTION REQUIRED: The content in this section represents placeholders.
-  Fill them out with the right functional requirements.
--->
+### Dependencies
+- **Runtime**: None (client-side only application).
+- **Development**: Node.js (LTS), React, Vite.
+- **Hosting**: Any static site hosting provider (e.g., Vercel, Netlify, GitHub Pages).
+
+### Assumptions
+- **Data Source**: All portfolio data (projects, metrics, logs) is stored in static JSON/TS configuration files within the codebase; no external CMS or API is required for the MVP.
+- **Browser Support**: Visitors are using modern evergreen browsers (Chrome, Firefox, Safari, Edge) with JavaScript enabled.
+- **Traffic**: The site is a personal portfolio with low-to-moderate traffic, so client-side rendering is sufficient for performance goals.
+
+## Requirements *(mandatory)*
 
 ### Functional Requirements
 
