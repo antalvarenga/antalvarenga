@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import ProjectsPanel from '../ProjectsPanel'
 import { projects } from '../../config/projects'
@@ -11,7 +11,7 @@ describe('ProjectsPanel Component', () => {
     })
   })
 
-  it('expands project details on click', () => {
+  it('expands project details on click', async () => {
     render(<ProjectsPanel />)
     const firstProject = projects[0]
     const projectElement = screen.getByText(new RegExp(firstProject.name))
@@ -23,6 +23,9 @@ describe('ProjectsPanel Component', () => {
     fireEvent.click(projectElement)
 
     // Check for architecture summary which should be visible now
-    expect(screen.getByText(new RegExp(firstProject.architectureSummary, 'i'))).toBeInTheDocument()
+    // We wait for the simulated request lifecycle to complete (~1.1s)
+    await waitFor(() => {
+      expect(screen.getByText(new RegExp(firstProject.architectureSummary, 'i'))).toBeInTheDocument()
+    }, { timeout: 2000 })
   })
 })

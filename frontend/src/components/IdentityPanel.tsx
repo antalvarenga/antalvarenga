@@ -25,15 +25,27 @@ const IdentityPanel: React.FC = () => {
       >
         {'>'} IDENTITY_SCAN
       </h2>
-      <div style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: '0.5rem' }}>
-        <span style={{ color: '#888' }}>LOCATION:</span>
-        <span>{profile.location}</span>
+      <div
+        role="region"
+        aria-label="Developer Identity Metadata"
+        style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: '0.5rem' }}
+      >
+        <span style={{ color: '#b0b0b0' }} id="label-location">
+          LOCATION:
+        </span>
+        <span aria-labelledby="label-location">{profile.location}</span>
 
-        <span style={{ color: '#888' }}>EXPERIENCE:</span>
-        <span>{profile.yearsOfExperience}+ Years</span>
+        <span style={{ color: '#b0b0b0' }} id="label-experience">
+          EXPERIENCE:
+        </span>
+        <span aria-labelledby="label-experience">{profile.yearsOfExperience}+ Years</span>
 
-        <span style={{ color: '#888' }}>CURRENT_FOCUS:</span>
-        <span style={{ color: '#00ff41' }}>{profile.currentFocus}</span>
+        <span style={{ color: '#b0b0b0' }} id="label-focus">
+          CURRENT_FOCUS:
+        </span>
+        <span aria-labelledby="label-focus" style={{ color: '#00ff41' }}>
+          {profile.currentFocus}
+        </span>
       </div>
     </section>
   )

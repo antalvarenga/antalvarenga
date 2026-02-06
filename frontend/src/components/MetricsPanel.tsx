@@ -35,9 +35,11 @@ const MetricsPanel: React.FC = () => {
                 {metric.isPrimary ? '[*] ' : '[ ] '}
                 {metric.label}
               </span>
-              <span style={{ color: '#888' }}>{metric.level}%</span>
+              <span style={{ color: '#b0b0b0' }}>{metric.level}%</span>
             </div>
             <div
+              role="img"
+              aria-label={`${metric.label} proficiency: ${metric.level}%`}
               style={{ width: '100%', height: '8px', backgroundColor: '#222', borderRadius: '4px' }}
             >
               <div
@@ -53,7 +55,7 @@ const MetricsPanel: React.FC = () => {
           </div>
         ))}
       </div>
-      <div style={{ marginTop: '1rem', fontSize: '0.7rem', color: '#666' }}>
+      <div style={{ marginTop: '1rem', fontSize: '0.7rem', color: '#b0b0b0' }}>
         [*] PRIMARY_SYSTEM_CAPABILITY
       </div>
     </section>

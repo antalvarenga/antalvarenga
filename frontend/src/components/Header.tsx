@@ -17,10 +17,10 @@ const Header: React.FC = () => {
     >
       <div>
         <h1 style={{ margin: 0, fontSize: '1.5rem' }}>{profile.name}</h1>
-        <p style={{ margin: 0, color: '#888', fontSize: '0.9rem' }}>{profile.primaryRole}</p>
+        <p style={{ margin: 0, color: '#b0b0b0', fontSize: '0.9rem' }}>{profile.primaryRole}</p>
       </div>
       <div style={{ textAlign: 'right' }}>
-        <span style={{ fontSize: '0.8rem', color: '#888' }}>SYSTEM STATUS: </span>
+        <span style={{ fontSize: '0.8rem', color: '#b0b0b0' }}>SYSTEM STATUS: </span>
         <span
           style={{
             color: profile.status === 'online' ? '#00ff41' : '#ff4100',

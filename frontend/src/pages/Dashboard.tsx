@@ -19,14 +19,26 @@ const Dashboard: React.FC = () => {
     const element = document.getElementById(panelId)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
+      // Focus the heading or the panel itself for screen readers
+      const heading = element.querySelector('h2')
+      if (heading) {
+        heading.tabIndex = -1
+        heading.focus()
+      }
     }
   }
 
   if (isLoading) {
     return (
-      <div style={{ backgroundColor: '#050505', minHeight: '100vh', padding: '2rem' }}>
+      <div
+        role="alert"
+        aria-busy="true"
+        aria-label="Loading dashboard"
+        style={{ backgroundColor: '#050505', minHeight: '100vh', padding: '2rem' }}
+      >
         <div
           className="skeleton"
+          aria-hidden="true"
           style={{ width: '100%', height: '60px', marginBottom: '2rem' }}
         ></div>
         <div

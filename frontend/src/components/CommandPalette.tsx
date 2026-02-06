@@ -24,9 +24,15 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ onCommand }) => {
         zIndex: 1000,
         fontFamily: 'monospace',
       }}
+      onKeyDown={(e) => {
+        if (e.key === 'Escape' && isOpen) setIsOpen(false)
+      }}
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        aria-label={isOpen ? 'Close control menu' : 'Open system control menu'}
         style={{
           backgroundColor: '#00ff41',
           color: '#000',
@@ -36,6 +42,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ onCommand }) => {
           cursor: 'pointer',
           borderRadius: '4px',
           boxShadow: '0 4px 12px rgba(0, 255, 65, 0.3)',
+          outlineColor: '#00ff41',
         }}
       >
         {isOpen ? 'CLOSE_CONTROL' : 'SYSTEM_CONTROL'}
@@ -43,6 +50,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ onCommand }) => {
 
       {isOpen && (
         <div
+          role="menu"
+          aria-label="System commands"
           style={{
             position: 'absolute',
             bottom: '3.5rem',
@@ -58,6 +67,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ onCommand }) => {
           {commands.map((cmd) => (
             <button
               key={cmd.id}
+              role="menuitem"
               onClick={() => {
                 onCommand(cmd.id)
                 setIsOpen(false)
@@ -73,6 +83,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ onCommand }) => {
                 cursor: 'pointer',
                 fontSize: '0.9rem',
                 transition: 'background 0.2s',
+                outlineColor: '#00ff41',
               }}
               onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#222')}
               onMouseOut={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}

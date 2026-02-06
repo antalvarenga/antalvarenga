@@ -26,6 +26,9 @@ const ActivityLogPanel: React.FC = () => {
         {'>'} SYSTEM_ACTIVITY_LOG
       </h2>
       <div
+        role="log"
+        aria-live="polite"
+        aria-label="System activity log"
         style={{
           marginTop: '1rem',
           maxHeight: '300px',
@@ -36,7 +39,7 @@ const ActivityLogPanel: React.FC = () => {
       >
         {activityLogs.map((log) => (
           <div key={log.id} style={{ marginBottom: '0.75rem', display: 'flex', gap: '1rem' }}>
-            <span style={{ color: '#555', whiteSpace: 'nowrap' }}>[{log.timestampLabel}]</span>
+            <span style={{ color: '#b0b0b0', whiteSpace: 'nowrap' }}>[{log.timestampLabel}]</span>
             <span
               style={{
                 color:

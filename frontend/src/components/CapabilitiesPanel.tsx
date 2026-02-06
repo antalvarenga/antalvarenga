@@ -26,6 +26,8 @@ const CapabilitiesPanel: React.FC = () => {
         {'>'} CAPABILITIES_MAP
       </h2>
       <div
+        role="list"
+        aria-label="Technical Capabilities"
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
@@ -36,6 +38,7 @@ const CapabilitiesPanel: React.FC = () => {
         {capabilities.map((cap) => (
           <div
             key={cap.id}
+            role="listitem"
             style={{
               padding: '0.75rem',
               backgroundColor: '#1a1a1a',
@@ -47,7 +50,7 @@ const CapabilitiesPanel: React.FC = () => {
               [{cap.type}]
             </div>
             <div style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>{cap.label}</div>
-            <div style={{ fontSize: '0.75rem', color: '#666', marginTop: '0.5rem' }}>
+            <div style={{ fontSize: '0.75rem', color: '#b0b0b0', marginTop: '0.5rem' }}>
               {cap.description}
             </div>
           </div>

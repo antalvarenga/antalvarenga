@@ -97,11 +97,12 @@ As a visitor, I want to navigate between capabilities, logs, and projects using 
 - **FR-008**: The system MUST provide an activity/logs panel that presents a chronological feed of recent or representative “events” (e.g., deployments, learning milestones, principles) in a terminal- or log-inspired style.
 - **FR-009**: The system MUST implement a command-style navigation mechanism (e.g., command palette) that allows users to quickly jump to main panels (Identity, Metrics, Projects/Services, Capabilities, Activity/Logs) and trigger relevant actions (such as expanding a specific project).
 - **FR-010**: The system MUST implement a signature interaction for opening a project that simulates a request lifecycle (e.g., request → validation → processing → response) via clearly communicated states or animations.
-- **FR-011**: The system MUST provide smooth, non-disruptive transitions between states (such as expanding/collapsing panels) without full-page reloads.
-- **FR-012**: The system MUST present intentional loading or skeleton states (instead of generic spinners) when data or sections are initializing, with visuals that reinforce the concept of inspecting a live system.
-- **FR-013**: The system MUST support keyboard and pointer interaction for all primary navigation actions, including opening and closing the navigation control and expanding/collapsing projects.
-- **FR-014**: The visual design MUST use a dark, professional theme with a single primary accent color, a clean sans-serif font for general UI, and a monospaced font for selected data/metric/log elements to reinforce the system-dashboard feel.
-- **FR-015**: The layout MUST be responsive, providing a usable, coherent experience on both desktop and smaller screens while preserving the sense of a unified dashboard.
+- **FR-011**: The system MUST provide smooth, non-disruptive transitions between states (such as expanding/collapsing panels) without full-page reloads. All transitions MUST honor the `prefers-reduced-motion` media query by disabling non-essential animations.
+- **FR-012**: The system MUST present intentional loading or skeleton states (instead of generic spinners) when data or sections are initializing, with visuals that reinforce the concept of inspecting a live system. Skeleton states MUST include ARIA labels (e.g., `aria-busy="true"`, `aria-label="Loading [section]"`) to inform assistive technology.
+- **FR-013**: The system MUST support keyboard and pointer interaction for all primary navigation actions, including opening and closing the navigation control and expanding/collapsing projects. Focus indicators MUST be clearly visible and have a contrast ratio of at least 3:1 against the background.
+- **FR-014**: The visual design MUST use a dark, professional theme with a single primary accent color, a clean sans-serif font for general UI, and a monospaced font for selected data/metric/log elements. The primary accent color MUST maintain a contrast ratio of at least 4.5:1 against the background for all informative text.
+- **FR-015**: The layout MUST be responsive, providing a usable, coherent experience on both desktop and smaller screens while preserving the sense of a unified dashboard. Tab order MUST remain logical (top-to-bottom, left-to-right) across all breakpoints.
+- **FR-016**: The system MUST follow WCAG 2.2 AA standards for all interactive components, including appropriate ARIA roles, labels, and live regions for dynamic content like the activity log.
 
 ### Key Entities *(include if feature involves data)*
 
