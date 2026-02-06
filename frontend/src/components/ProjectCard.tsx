@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import type { Project } from '../models/types'
+import { theme } from '../styles/theme'
 
 interface ProjectCardProps {
   project: Project
@@ -58,12 +59,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <div
         style={{
           marginTop: '0.75rem',
-          fontFamily: 'monospace',
+          fontFamily: theme.fonts.mono,
           fontSize: '0.8rem',
-          color: '#00ff41',
-          padding: '0.5rem',
-          backgroundColor: '#0a0a0a',
-          borderLeft: '2px solid #00ff41',
+          color: theme.colors.primary,
+          padding: theme.spacing.sm,
+          backgroundColor: theme.colors.backgroundDark,
+          borderLeft: `2px solid ${theme.colors.primary}`,
         }}
       >
         {lifecycleState === 'requesting' && '> INITIATING HANDSHAKE...'}
@@ -96,21 +97,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         isExpanded ? 'Click to collapse.' : 'Click to expand details.'
       }`}
       style={{
-        padding: '1rem',
-        backgroundColor: '#1a1a1a',
-        border: `1px solid ${isExpanded || isLoading ? '#00ff41' : '#333'}`,
-        borderRadius: '4px',
+        padding: theme.spacing.md,
+        backgroundColor: theme.colors.backgroundLight,
+        border: `1px solid ${isExpanded || isLoading ? theme.colors.primary : theme.colors.border}`,
+        borderRadius: theme.borderRadius.md,
         cursor: 'pointer',
-        marginBottom: '0.5rem',
+        marginBottom: theme.spacing.sm,
         transition: 'all 0.3s ease',
-        outlineColor: '#00ff41',
+        outlineColor: theme.colors.primary,
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h3
           style={{
             margin: 0,
-            color: isExpanded || isLoading ? '#00ff41' : '#ccc',
+            color: isExpanded || isLoading ? theme.colors.primary : theme.colors.text,
             fontSize: '1rem',
           }}
         >
@@ -121,15 +122,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           style={{
             fontSize: '0.7rem',
             padding: '2px 6px',
-            backgroundColor: '#333',
-            color: '#aaa',
-            borderRadius: '2px',
+            backgroundColor: theme.colors.border,
+            color: theme.colors.textDark,
+            borderRadius: theme.borderRadius.sm,
           }}
         >
           {project.status}
         </span>
       </div>
-      <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.85rem', color: '#b0b0b0' }}>
+      <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.85rem', color: theme.colors.textMuted }}>
         {project.summary}
       </p>
 
@@ -140,22 +141,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           role="region"
           aria-label={`${project.name} details`}
           style={{
-            marginTop: '1rem',
-            borderTop: '1px solid #333',
-            paddingTop: '1rem',
+            marginTop: theme.spacing.md,
+            borderTop: `1px solid ${theme.colors.border}`,
+            paddingTop: theme.spacing.md,
             fontSize: '0.85rem',
             animation: 'fadeIn 0.3s ease-in',
           }}
         >
-          <div style={{ marginBottom: '0.5rem' }}>
-            <span style={{ color: '#00ff41' }}>ARCH_SUMMARY:</span> {project.architectureSummary}
+          <div style={{ marginBottom: theme.spacing.sm }}>
+            <span style={{ color: theme.colors.primary }}>ARCH_SUMMARY:</span> {project.architectureSummary}
           </div>
-          <div style={{ marginBottom: '0.5rem' }}>
-            <span style={{ color: '#00ff41' }}>BACKEND_FOCUS:</span> {project.backendFocus}
+          <div style={{ marginBottom: theme.spacing.sm }}>
+            <span style={{ color: theme.colors.primary }}>BACKEND_FOCUS:</span> {project.backendFocus}
           </div>
           <div>
-            <span style={{ color: '#00ff41' }}>RESPONSIBILITIES:</span>
-            <ul style={{ margin: '0.5rem 0', paddingLeft: '1.2rem', color: '#b0b0b0' }}>
+            <span style={{ color: theme.colors.primary }}>RESPONSIBILITIES:</span>
+            <ul style={{ margin: '0.5rem 0', paddingLeft: '1.2rem', color: theme.colors.textMuted }}>
               {project.responsibilities.map((resp, index) => (
                 <li key={index}>{resp}</li>
               ))}
@@ -168,3 +169,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 }
 
 export default ProjectCard
+

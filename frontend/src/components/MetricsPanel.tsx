@@ -1,53 +1,34 @@
 import React from 'react'
 import { metrics } from '../config/metrics'
+import Panel from './common/Panel'
+import { theme } from '../styles/theme'
 
 const MetricsPanel: React.FC = () => {
   return (
-    <section
-      style={{
-        padding: '1.5rem',
-        backgroundColor: '#111',
-        border: '1px solid #333',
-        borderRadius: '4px',
-        fontFamily: 'monospace',
-        color: '#ccc',
-        marginBottom: '1rem',
-      }}
-    >
-      <h2
-        style={{
-          color: '#00ff41',
-          marginTop: 0,
-          fontSize: '1.2rem',
-          borderBottom: '1px solid #333',
-          paddingBottom: '0.5rem',
-        }}
-      >
-        {'>'} SYSTEM_METRICS
-      </h2>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
+    <Panel title="SYSTEM_METRICS">
+      <div style={{ display: 'flex', flexDirection: 'column', gap: theme.spacing.md, marginTop: theme.spacing.md }}>
         {metrics.map((metric) => (
           <div key={metric.id}>
             <div
-              style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}
+              style={{ display: 'flex', justifyContent: 'space-between', marginBottom: theme.spacing.xs }}
             >
-              <span style={{ color: metric.isPrimary ? '#00ff41' : '#ccc' }}>
+              <span style={{ color: metric.isPrimary ? theme.colors.primary : theme.colors.text }}>
                 {metric.isPrimary ? '[*] ' : '[ ] '}
                 {metric.label}
               </span>
-              <span style={{ color: '#b0b0b0' }}>{metric.level}%</span>
+              <span style={{ color: theme.colors.textMuted }}>{metric.level}%</span>
             </div>
             <div
               role="img"
               aria-label={`${metric.label} proficiency: ${metric.level}%`}
-              style={{ width: '100%', height: '8px', backgroundColor: '#222', borderRadius: '4px' }}
+              style={{ width: '100%', height: '8px', backgroundColor: theme.colors.backgroundLighter, borderRadius: theme.borderRadius.md }}
             >
               <div
                 style={{
                   width: `${metric.level}%`,
                   height: '100%',
-                  backgroundColor: metric.isPrimary ? '#00ff41' : '#555',
-                  borderRadius: '4px',
+                  backgroundColor: metric.isPrimary ? theme.colors.primary : '#555',
+                  borderRadius: theme.borderRadius.md,
                   transition: 'width 1s ease-in-out',
                 }}
               />
@@ -55,10 +36,10 @@ const MetricsPanel: React.FC = () => {
           </div>
         ))}
       </div>
-      <div style={{ marginTop: '1rem', fontSize: '0.7rem', color: '#b0b0b0' }}>
+      <div style={{ marginTop: theme.spacing.md, fontSize: '0.7rem', color: theme.colors.textMuted }}>
         [*] PRIMARY_SYSTEM_CAPABILITY
       </div>
-    </section>
+    </Panel>
   )
 }
 

@@ -1,36 +1,17 @@
 import React from 'react'
 import { activityLogs } from '../config/logs'
+import Panel from './common/Panel'
+import { theme } from '../styles/theme'
 
 const ActivityLogPanel: React.FC = () => {
   return (
-    <section
-      style={{
-        padding: '1.5rem',
-        backgroundColor: '#111',
-        border: '1px solid #333',
-        borderRadius: '4px',
-        fontFamily: 'monospace',
-        color: '#ccc',
-        marginBottom: '1rem',
-      }}
-    >
-      <h2
-        style={{
-          color: '#00ff41',
-          marginTop: 0,
-          fontSize: '1.2rem',
-          borderBottom: '1px solid #333',
-          paddingBottom: '0.5rem',
-        }}
-      >
-        {'>'} SYSTEM_ACTIVITY_LOG
-      </h2>
+    <Panel title="SYSTEM_ACTIVITY_LOG">
       <div
         role="log"
         aria-live="polite"
         aria-label="System activity log"
         style={{
-          marginTop: '1rem',
+          marginTop: theme.spacing.md,
           maxHeight: '300px',
           overflowY: 'auto',
           fontSize: '0.85rem',
@@ -38,16 +19,16 @@ const ActivityLogPanel: React.FC = () => {
         }}
       >
         {activityLogs.map((log) => (
-          <div key={log.id} style={{ marginBottom: '0.75rem', display: 'flex', gap: '1rem' }}>
-            <span style={{ color: '#b0b0b0', whiteSpace: 'nowrap' }}>[{log.timestampLabel}]</span>
+          <div key={log.id} style={{ marginBottom: '0.75rem', display: 'flex', gap: theme.spacing.md }}>
+            <span style={{ color: theme.colors.textMuted, whiteSpace: 'nowrap' }}>[{log.timestampLabel}]</span>
             <span
               style={{
                 color:
                   log.category === 'deployment'
-                    ? '#00ff41'
+                    ? theme.colors.primary
                     : log.category === 'learning'
-                      ? '#00bcff'
-                      : '#ffbc00',
+                      ? theme.colors.accentBlue
+                      : theme.colors.accentYellow,
                 textTransform: 'uppercase',
                 fontWeight: 'bold',
                 minWidth: '100px',
@@ -59,7 +40,7 @@ const ActivityLogPanel: React.FC = () => {
           </div>
         ))}
       </div>
-    </section>
+    </Panel>
   )
 }
 
