@@ -6,6 +6,7 @@ import ProjectsPanel from '../components/ProjectsPanel'
 import CapabilitiesPanel from '../components/CapabilitiesPanel'
 import ActivityLogPanel from '../components/ActivityLogPanel'
 import CommandPalette from '../components/CommandPalette'
+import styles from './Dashboard.module.css'
 
 const Dashboard: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -34,33 +35,24 @@ const Dashboard: React.FC = () => {
         role="alert"
         aria-busy="true"
         aria-label="Loading dashboard"
-        style={{ backgroundColor: '#050505', minHeight: '100vh', padding: '2rem' }}
+        className={styles.loadingScreen}
       >
         <div
-          className="skeleton"
+          className={`skeleton ${styles.skeletonHeader}`}
           aria-hidden="true"
-          style={{ width: '100%', height: '60px', marginBottom: '2rem' }}
         ></div>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-            gap: '2rem',
-          }}
-        >
+        <div className={styles.grid}>
           <div>
             <div
-              className="skeleton"
-              style={{ width: '100%', height: '200px', marginBottom: '1rem' }}
+              className={`skeleton ${styles.skeletonSmall} ${styles.skeletonBlock}`}
             ></div>
-            <div className="skeleton" style={{ width: '100%', height: '300px' }}></div>
+            <div className={`skeleton ${styles.skeletonMedium}`}></div>
           </div>
           <div>
             <div
-              className="skeleton"
-              style={{ width: '100%', height: '400px', marginBottom: '1rem' }}
+              className={`skeleton ${styles.skeletonLarge} ${styles.skeletonBlock}`}
             ></div>
-            <div className="skeleton" style={{ width: '100', height: '200px' }}></div>
+            <div className={`skeleton ${styles.skeletonSmall}`}></div>
           </div>
         </div>
       </div>
@@ -70,22 +62,11 @@ const Dashboard: React.FC = () => {
   return (
     <div
       data-testid="dashboard-page"
-      style={{
-        backgroundColor: '#050505',
-        minHeight: '100vh',
-        color: '#eee',
-        fontFamily: 'monospace',
-      }}
+      className={styles.dashboard}
     >
       <Header />
-      <main style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-            gap: '2rem',
-          }}
-        >
+      <main className={styles.main}>
+        <div className={styles.grid}>
           <div>
             <div id="identity">
               <IdentityPanel />

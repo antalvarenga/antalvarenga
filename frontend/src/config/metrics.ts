@@ -2,6 +2,22 @@ import type { SkillMetric } from '../models/types'
 
 export const metrics: SkillMetric[] = [
   {
+    id: 'python',
+    label: 'Python',
+    category: 'backend',
+    level: 85,
+    trend: 'up',
+    isPrimary: true,
+  },
+  {
+    id: 'postgresql',
+    label: 'PostgreSQL',
+    category: 'backend',
+    level: 85,
+    trend: 'up',
+    isPrimary: true,
+  },
+  {
     id: 'node-js',
     label: 'Node.js / TypeScript',
     category: 'backend',
@@ -16,14 +32,6 @@ export const metrics: SkillMetric[] = [
     level: 90,
     trend: 'steady',
     isPrimary: false,
-  },
-  {
-    id: 'postgresql',
-    label: 'PostgreSQL',
-    category: 'backend',
-    level: 85,
-    trend: 'up',
-    isPrimary: true,
   },
   {
     id: 'docker-k8s',

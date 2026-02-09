@@ -1,7 +1,7 @@
 import React from 'react'
 import { profile } from '../config/profile'
 import Panel from './common/Panel'
-import { theme } from '../styles/theme'
+import styles from './IdentityPanel.module.css'
 
 const IdentityPanel: React.FC = () => {
   return (
@@ -9,22 +9,22 @@ const IdentityPanel: React.FC = () => {
       <div
         role="region"
         aria-label="Developer Identity Metadata"
-        style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: theme.spacing.sm }}
+        className={styles.grid}
       >
-        <span style={{ color: theme.colors.textMuted }} id="label-location">
+        <span className={styles.label} id="label-location">
           LOCATION:
         </span>
         <span aria-labelledby="label-location">{profile.location}</span>
 
-        <span style={{ color: theme.colors.textMuted }} id="label-experience">
+        <span className={styles.label} id="label-experience">
           EXPERIENCE:
         </span>
         <span aria-labelledby="label-experience">{profile.yearsOfExperience}+ Years</span>
 
-        <span style={{ color: theme.colors.textMuted }} id="label-focus">
+        <span className={styles.label} id="label-focus">
           CURRENT_FOCUS:
         </span>
-        <span aria-labelledby="label-focus" style={{ color: theme.colors.primary }}>
+        <span aria-labelledby="label-focus" className={styles.focus}>
           {profile.currentFocus}
         </span>
       </div>

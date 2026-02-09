@@ -1,32 +1,20 @@
 import React from 'react'
 import { profile } from '../config/profile'
+import styles from './Header.module.css'
 
 const Header: React.FC = () => {
   return (
-    <header
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '1rem 2rem',
-        backgroundColor: '#0a0a0a',
-        color: '#00ff41', // Matrix/Console green as primary accent
-        borderBottom: '1px solid #333',
-        fontFamily: 'monospace',
-      }}
-    >
+    <header className={styles.header}>
       <div>
-        <h1 style={{ margin: 0, fontSize: '1.5rem' }}>{profile.name}</h1>
-        <p style={{ margin: 0, color: '#b0b0b0', fontSize: '0.9rem' }}>{profile.primaryRole}</p>
+        <h1 className={styles.name}>{profile.name}</h1>
+        <p className={styles.role}>{profile.primaryRole}</p>
       </div>
-      <div style={{ textAlign: 'right' }}>
-        <span style={{ fontSize: '0.8rem', color: '#b0b0b0' }}>SYSTEM STATUS: </span>
+      <div className={styles.statusContainer}>
+        <span className={styles.statusLabel}>SYSTEM STATUS: </span>
         <span
-          style={{
-            color: profile.status === 'online' ? '#00ff41' : '#ff4100',
-            fontWeight: 'bold',
-            textTransform: 'uppercase',
-          }}
+          className={`${styles.status} ${
+            profile.status === 'online' ? styles.statusOnline : styles.statusOffline
+          }`}
         >
           {profile.status}
         </span>

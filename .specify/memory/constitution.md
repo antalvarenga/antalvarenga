@@ -1,18 +1,18 @@
 <!--
   SYNC IMPACT REPORT
   ==================
-  Version Change: 1.1.0 → 1.2.0
-  Type: MINOR (new requirement: accessibility standards)
-  Date: 2026-01-29
+  Version Change: 1.2.0 → 1.3.0
+  Type: MINOR (New guideline: usage of CSS Modules for styling isolation)
+  Date: 2026-02-09
 
   Modified Principles:
-  - V. Performance & User Experience
-    - Explicitly require WCAG 2.2 AA compliance
-    - Expand rationale to include accessibility as a core quality attribute
+  - I. Modern Tech Stack
+    - Added CSS Modules for component-level styling
+  - II. Component-Driven Architecture
+    - Added Styling Isolation requirement using CSS Modules (.module.css)
 
   Modified Sections:
-  - Development Workflow > Quality Gates
-    - Added accessibility check to mandatory gates
+  - N/A
 
   Added Sections:
   - N/A
@@ -21,12 +21,12 @@
   - N/A
 
   Templates Status:
-  - ✅ `.specify/templates/plan-template.md`: No changes required (dynamically linked)
+  - ✅ `.specify/templates/plan-template.md`: No changes required
   - ✅ `.specify/templates/spec-template.md`: No changes required
   - ✅ `.specify/templates/tasks-template.md`: No changes required
 
   Follow-up TODOs:
-  - Ensure future feature specs include accessibility acceptance criteria
+  - N/A
 -->
 
 # Antonio Alvarenga Personal Webpage Constitution
@@ -40,8 +40,9 @@ The project MUST use current Long Term Support (LTS) versions of core technologi
 - **React**: Current LTS version only, using Vite
 - **TypeScript**: Current LTS version only
 - **Testing Framework**: Vitest as the primary testing framework
+- **Styling**: CSS Modules for component-level styling
 
-**Rationale**: LTS versions provide stability, security patches, and community support while avoiding bleeding-edge instability. This ensures long-term maintainability and reduces technical debt.
+**Rationale**: LTS versions provide stability, security patches, and community support while avoiding bleeding-edge instability. CSS Modules provide local scope for CSS by default, avoiding global namespace collisions.
 
 ### II. Component-Driven Architecture
 
@@ -51,8 +52,9 @@ Components MUST follow these design principles:
 - **Single Responsibility**: Each component should have one clear purpose
 - **Size Discipline**: Avoid huge components - break down complex UI into smaller, composable pieces
 - **Composition Over Complexity**: Favor component composition over monolithic implementations
+- **Styling Isolation**: Components MUST use CSS Modules (`.module.css`) for all component-specific styles to prevent global namespace pollution and ensure style encapsulation.
 
-**Rationale**: Modular components improve maintainability, testability, and code reuse. Smaller components are easier to understand, debug, and refactor.
+**Rationale**: Modular components improve maintainability, testability, and code reuse. Styling isolation ensures that styles do not leak between components, making them truly independent and predictable.
 
 ### III. Code Quality & Security (NON-NEGOTIABLE)
 
@@ -103,6 +105,7 @@ The application MUST be fast, consistent, and inclusive:
 - **Testing**: Vitest
 - **Package Manager**: npm or yarn (document choice in README)
 - **Bundler**: Vite
+- **Styling**: CSS Modules
 
 **Dependency Management**:
 
@@ -128,7 +131,7 @@ The application MUST be fast, consistent, and inclusive:
 **Code Review Requirements**:
 
 - All changes require review
-- Verify constitution compliance (component size, quality, security, accessibility)
+- Verify constitution compliance (component size, quality, security, accessibility, styling isolation)
 - Check test coverage for new features
 - Validate performance implications
 
@@ -172,4 +175,4 @@ The application MUST be fast, consistent, and inclusive:
 - Refer to specification templates in `.specify/templates/` for feature development workflow
 - Use command files in `.cursor/commands/` for guided development tasks
 
-**Version**: 1.2.0 | **Ratified**: 2026-01-20 | **Last Amended**: 2026-01-29
+**Version**: 1.3.0 | **Ratified**: 2026-01-20 | **Last Amended**: 2026-02-09

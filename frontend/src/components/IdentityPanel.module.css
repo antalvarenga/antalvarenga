@@ -1,0 +1,13 @@
+.grid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: var(--spacing-sm);
+}
+
+.label {
+  color: var(--text-muted);
+}
+
+.focus {
+  color: var(--primary);
+}

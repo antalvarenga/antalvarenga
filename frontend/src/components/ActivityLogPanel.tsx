@@ -1,7 +1,7 @@
 import React from 'react'
 import { activityLogs } from '../config/logs'
 import Panel from './common/Panel'
-import { theme } from '../styles/theme'
+import styles from './ActivityLogPanel.module.css'
 
 const ActivityLogPanel: React.FC = () => {
   return (
@@ -10,29 +10,19 @@ const ActivityLogPanel: React.FC = () => {
         role="log"
         aria-live="polite"
         aria-label="System activity log"
-        style={{
-          marginTop: theme.spacing.md,
-          maxHeight: '300px',
-          overflowY: 'auto',
-          fontSize: '0.85rem',
-          lineHeight: '1.4',
-        }}
+        className={styles.logContainer}
       >
         {activityLogs.map((log) => (
-          <div key={log.id} style={{ marginBottom: '0.75rem', display: 'flex', gap: theme.spacing.md }}>
-            <span style={{ color: theme.colors.textMuted, whiteSpace: 'nowrap' }}>[{log.timestampLabel}]</span>
+          <div key={log.id} className={styles.logEntry}>
+            <span className={styles.timestamp}>[{log.timestampLabel}]</span>
             <span
-              style={{
-                color:
-                  log.category === 'deployment'
-                    ? theme.colors.primary
-                    : log.category === 'learning'
-                      ? theme.colors.accentBlue
-                      : theme.colors.accentYellow,
-                textTransform: 'uppercase',
-                fontWeight: 'bold',
-                minWidth: '100px',
-              }}
+              className={`${styles.category} ${
+                log.category === 'deployment'
+                  ? styles.categoryDeployment
+                  : log.category === 'learning'
+                    ? styles.categoryLearning
+                    : styles.categoryDefault
+              }`}
             >
               {log.category}
             </span>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { theme } from '../../styles/theme'
+import styles from './Panel.module.css'
 
 interface PanelProps {
   title: string
@@ -12,26 +12,9 @@ const Panel: React.FC<PanelProps> = ({ title, children, id, className }) => {
   return (
     <section
       id={id}
-      className={className}
-      style={{
-        padding: theme.spacing.lg,
-        backgroundColor: theme.colors.background,
-        border: `1px solid ${theme.colors.border}`,
-        borderRadius: theme.borderRadius.md,
-        fontFamily: theme.fonts.mono,
-        color: theme.colors.text,
-        marginBottom: theme.spacing.md,
-      }}
+      className={`${styles.panel} ${className || ''}`}
     >
-      <h2
-        style={{
-          color: theme.colors.primary,
-          marginTop: 0,
-          fontSize: '1.2rem',
-          borderBottom: `1px solid ${theme.colors.border}`,
-          paddingBottom: theme.spacing.sm,
-        }}
-      >
+      <h2 className={styles.header}>
         {'>'} {title}
       </h2>
       {children}

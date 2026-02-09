@@ -1,7 +1,7 @@
 import React from 'react'
 import { capabilities } from '../config/capabilities'
 import Panel from './common/Panel'
-import { theme } from '../styles/theme'
+import styles from './CapabilitiesPanel.module.css'
 
 const CapabilitiesPanel: React.FC = () => {
   return (
@@ -9,29 +9,19 @@ const CapabilitiesPanel: React.FC = () => {
       <div
         role="list"
         aria-label="Technical Capabilities"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-          gap: theme.spacing.md,
-          marginTop: theme.spacing.md,
-        }}
+        className={styles.grid}
       >
         {capabilities.map((cap) => (
           <div
             key={cap.id}
             role="listitem"
-            style={{
-              padding: '0.75rem',
-              backgroundColor: theme.colors.backgroundLight,
-              border: `1px solid ${theme.colors.border}`,
-              borderRadius: theme.borderRadius.sm,
-            }}
+            className={styles.card}
           >
-            <div style={{ color: theme.colors.primary, fontSize: '0.8rem', marginBottom: theme.spacing.xs }}>
+            <div className={styles.type}>
               [{cap.type}]
             </div>
-            <div style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>{cap.label}</div>
-            <div style={{ fontSize: '0.75rem', color: theme.colors.textMuted, marginTop: theme.spacing.sm }}>
+            <div className={styles.label}>{cap.label}</div>
+            <div className={styles.description}>
               {cap.description}
             </div>
           </div>

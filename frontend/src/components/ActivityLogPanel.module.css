@@ -1,0 +1,36 @@
+.logContainer {
+  margin-top: var(--spacing-md);
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.logEntry {
+  margin-bottom: 0.75rem;
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.timestamp {
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.category {
+  text-transform: uppercase;
+  font-weight: bold;
+  min-width: 100px;
+}
+
+.categoryDeployment {
+  color: var(--primary);
+}
+
+.categoryLearning {
+  color: var(--accent-blue);
+}
+
+.categoryDefault {
+  color: var(--accent-yellow);
+}

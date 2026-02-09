@@ -1,0 +1,30 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.card {
+  padding: 0.75rem;
+  background-color: var(--background-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.type {
+  color: var(--primary);
+  font-size: 0.8rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: var(--spacing-sm);
+}

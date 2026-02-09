@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import type { Project } from '../models/types'
-import { theme } from '../styles/theme'
+import styles from './ProjectCard.module.css'
 
 interface ProjectCardProps {
   project: Project
@@ -56,17 +56,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     if (lifecycleState === 'idle' || lifecycleState === 'expanded') return null
 
     return (
-      <div
-        style={{
-          marginTop: '0.75rem',
-          fontFamily: theme.fonts.mono,
-          fontSize: '0.8rem',
-          color: theme.colors.primary,
-          padding: theme.spacing.sm,
-          backgroundColor: theme.colors.backgroundDark,
-          borderLeft: `2px solid ${theme.colors.primary}`,
-        }}
-      >
+      <div className={styles.loadingState}>
         {lifecycleState === 'requesting' && '> INITIATING HANDSHAKE...'}
         {lifecycleState === 'validating' && '> VERIFYING AUTHORIZATION...'}
         {lifecycleState === 'processing' && '> ESTABLISHING DATA STREAM...'}
@@ -96,41 +86,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       aria-label={`Project: ${project.name}. Status: ${project.status}. ${
         isExpanded ? 'Click to collapse.' : 'Click to expand details.'
       }`}
-      style={{
-        padding: theme.spacing.md,
-        backgroundColor: theme.colors.backgroundLight,
-        border: `1px solid ${isExpanded || isLoading ? theme.colors.primary : theme.colors.border}`,
-        borderRadius: theme.borderRadius.md,
-        cursor: 'pointer',
-        marginBottom: theme.spacing.sm,
-        transition: 'all 0.3s ease',
-        outlineColor: theme.colors.primary,
-      }}
+      className={`${styles.container} ${isExpanded || isLoading ? styles.containerActive : ''}`}
     >
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div className={styles.header}>
         <h3
-          style={{
-            margin: 0,
-            color: isExpanded || isLoading ? theme.colors.primary : theme.colors.text,
-            fontSize: '1rem',
-          }}
+          className={`${styles.title} ${isExpanded || isLoading ? styles.titleActive : ''}`}
         >
           {isExpanded ? '[v] ' : '[>] '}
           {project.name}
         </h3>
-        <span
-          style={{
-            fontSize: '0.7rem',
-            padding: '2px 6px',
-            backgroundColor: theme.colors.border,
-            color: theme.colors.textDark,
-            borderRadius: theme.borderRadius.sm,
-          }}
-        >
+        <span className={styles.status}>
           {project.status}
         </span>
       </div>
-      <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.85rem', color: theme.colors.textMuted }}>
+      <p className={styles.summary}>
         {project.summary}
       </p>
 
@@ -140,23 +109,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <div
           role="region"
           aria-label={`${project.name} details`}
-          style={{
-            marginTop: theme.spacing.md,
-            borderTop: `1px solid ${theme.colors.border}`,
-            paddingTop: theme.spacing.md,
-            fontSize: '0.85rem',
-            animation: 'fadeIn 0.3s ease-in',
-          }}
+          className={styles.details}
         >
-          <div style={{ marginBottom: theme.spacing.sm }}>
-            <span style={{ color: theme.colors.primary }}>ARCH_SUMMARY:</span> {project.architectureSummary}
+          <div className={styles.detailRow}>
+            <span className={styles.label}>ARCH_SUMMARY:</span> {project.architectureSummary}
           </div>
-          <div style={{ marginBottom: theme.spacing.sm }}>
-            <span style={{ color: theme.colors.primary }}>BACKEND_FOCUS:</span> {project.backendFocus}
+          <div className={styles.detailRow}>
+            <span className={styles.label}>BACKEND_FOCUS:</span> {project.backendFocus}
           </div>
           <div>
-            <span style={{ color: theme.colors.primary }}>RESPONSIBILITIES:</span>
-            <ul style={{ margin: '0.5rem 0', paddingLeft: '1.2rem', color: theme.colors.textMuted }}>
+            <span className={styles.label}>RESPONSIBILITIES:</span>
+            <ul className={styles.responsibilitiesList}>
               {project.responsibilities.map((resp, index) => (
                 <li key={index}>{resp}</li>
               ))}
