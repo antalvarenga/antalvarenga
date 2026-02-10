@@ -10,7 +10,8 @@ const mockProject: Project = {
   summary: 'A test project summary.',
   architectureSummary: 'Microservices',
   backendFocus: 'High',
-  responsibilities: ['Dev', 'Ops']
+  responsibilities: ['Dev', 'Ops'],
+  capabilityIds: ['api-design', 'cli-dev', 'automation']
 }
 
 describe('ProjectCard Component', () => {
