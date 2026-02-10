@@ -24,7 +24,7 @@ export interface Project {
   capabilityIds: string[]
 }
 
-export type CapabilityType = 'Auth' | 'API' | 'Database' | 'Cache' | 'Frontend' | 'DevOps' | 'Other'
+export type CapabilityType = 'Auth' | 'API' | 'Database' | 'Cache' | 'Frontend' | 'DevOps' | 'Other' | "Backend"
 
 export interface CapabilityNode {
   id: string

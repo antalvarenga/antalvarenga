@@ -7,7 +7,7 @@ describe('MetricsPanel Component', () => {
   it('renders all skill metrics', () => {
     render(<MetricsPanel />)
     metrics.forEach((metric) => {
-      expect(screen.getByText(new RegExp(metric.label))).toBeInTheDocument()
+      expect(screen.getByText(metric.label, { exact: false })).toBeInTheDocument()
     })
   })
 
@@ -15,7 +15,7 @@ describe('MetricsPanel Component', () => {
     render(<MetricsPanel />)
     const primaryMetrics = metrics.filter((m) => m.isPrimary)
     primaryMetrics.forEach((metric) => {
-      expect(screen.getByText(new RegExp(metric.label))).toBeInTheDocument()
+      expect(screen.getByText(metric.label, { exact: false })).toBeInTheDocument()
     })
   })
 })

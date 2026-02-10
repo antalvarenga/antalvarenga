@@ -2,10 +2,10 @@ import type { DeveloperProfile } from '../models/types'
 
 export const profile: DeveloperProfile = {
   id: 'antonio-alvarenga',
-  name: 'Antonio Alvarenga',
-  primaryRole: 'Full Stack Engineer & Systems Architect',
-  location: 'Brazil',
-  yearsOfExperience: 10,
-  currentFocus: 'Distributed Systems & Scalable Frontend Architectures',
+  name: 'António de Alvarenga',
+  primaryRole: 'Back-End Engineer',
+  location: 'Lisbon, Portugal',
+  yearsOfExperience: 7,
+  currentFocus: 'REST APIs and Distributed Systems',
   status: 'online',
 }

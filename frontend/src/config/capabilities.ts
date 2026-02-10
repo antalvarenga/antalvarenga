@@ -6,19 +6,37 @@ export const capabilities: CapabilityNode[] = [
     label: 'API Design',
     type: 'API',
     description:
-      'Designing RESTful and GraphQL APIs with focus on developer experience and scalability.',
+      'Designing RESTful APIs with focus on developer experience and scalability.',
   },
   {
-    id: 'react-dev',
-    label: 'React Development',
-    type: 'Frontend',
+    id: 'tdd',
+    label: 'Test Driven Development',
+    type: 'Other',
     description:
-      'Building high-performance, accessible, and maintainable user interfaces with React.',
+      'Building robust software with integration tests to optimize speed and coverage',
   },
   {
     id: 'automation',
     label: 'Process Automation',
     type: 'DevOps',
     description: 'Streamlining workflows and CI/CD pipelines to improve development velocity.',
+  },
+  {
+    id: 'mvc',
+    label: 'MVC',
+    type: 'Backend',
+    description: 'Building backends using Model-View-Controller arquitecture for simplicity and structure',
+  },
+  {
+    id: 'schedulers',
+    label: 'Schedulers',
+    type: 'Backend',
+    description: 'Building schedulers to run tasks robustly using Python APScheduler and database utilities.',
+  },
+  {
+    id: 'backround-jobs',
+    label: 'Background jobs',
+    type: 'Backend',
+    description: 'Developing orquestrated background workers using Python Celery to perform complex, time-consuming tasks.',
   },
 ]
