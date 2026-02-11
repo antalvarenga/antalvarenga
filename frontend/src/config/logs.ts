@@ -16,7 +16,7 @@ export const activityLogs: ActivityLogEntry[] = [
   {
     id: 'log-3',
     timestampLabel: '2026-01-28 10:30:00',
-    category: 'principle',
+    category: 'other',
     message: 'Adopting a "Systems-as-Service" architecture for portfolio representation.',
   },
 ]
