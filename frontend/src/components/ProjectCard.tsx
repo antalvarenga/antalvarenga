@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import type { Project } from '../models/types'
 import styles from './ProjectCard.module.css'
 
@@ -33,7 +33,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       role="button"
       aria-expanded={isExpanded}
       tabIndex={0}
-      aria-label={`Project: ${project.name}. Status: ${project.status}. ${
+      aria-label={`Project: ${project.name}. ${
         isExpanded ? 'Click to collapse.' : 'Click to expand details.'
       }`}
       className={`${styles.container} ${isExpanded ? styles.containerActive : ''}`}

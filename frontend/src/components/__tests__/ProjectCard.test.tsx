@@ -6,7 +6,7 @@ import type { Project } from '../../models/types'
 const mockProject: Project = {
   id: 'p1',
   name: 'Test Project',
-  status: 'Stable',
+  duration: '1 month',
   summary: 'A test project summary.',
   architectureSummary: 'Microservices',
   backendFocus: 'High',
