@@ -9,6 +9,13 @@ export const capabilities: CapabilityNode[] = [
       'Designing RESTful APIs with focus on developer experience and scalability.',
   },
   {
+    id: 'agentic',
+    label: 'Agentic Development',
+    type: 'Other',
+    description:
+      'Using AI tools and agents to ship features fast.',
+  },
+  {
     id: 'tdd',
     label: 'Test Driven Development',
     type: 'Other',

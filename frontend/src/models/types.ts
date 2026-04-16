@@ -10,13 +10,13 @@ export interface SkillMetric {
   isPrimary: boolean
 }
 
-export type ProjectStatus = 'Stable' | 'In Progress' | 'Archived'
+export type ProjectStatus = 'Completed' | 'In Progress'
 
 export interface Project {
   id: string
   name: string
   summary: string
-  status: ProjectStatus
+  duration: string
   responsibilities: string[]
   architectureSummary: string
   backendFocus: string
@@ -33,7 +33,7 @@ export interface CapabilityNode {
   description: string
 }
 
-export type LogCategory = 'deployment' | 'learning' | 'principle' | 'other'
+export type LogCategory = 'work' | 'education' | 'certification' | 'other'
 
 export interface ActivityLogEntry {
   id: string

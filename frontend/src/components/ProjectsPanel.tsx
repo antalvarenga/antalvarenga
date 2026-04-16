@@ -6,7 +6,7 @@ import styles from './ProjectsPanel.module.css'
 
 const ProjectsPanel: React.FC = () => {
   return (
-    <Panel title="PROJECTS_AS_SERVICES">
+    <Panel title="PROJECTS">
       <div className={styles.container}>
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />

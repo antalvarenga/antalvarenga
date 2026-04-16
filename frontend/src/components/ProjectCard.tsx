@@ -6,69 +6,20 @@ interface ProjectCardProps {
   project: Project
 }
 
-type LifecycleState = 'idle' | 'requesting' | 'validating' | 'processing' | 'expanded'
+type LifecycleState = 'collapsed' | 'expanded'
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const [lifecycleState, setLifecycleState] = useState<LifecycleState>('idle')
-  const timeoutsRef = useRef<number[]>([])
-
-  // Clear timeouts on unmount
-  useEffect(() => {
-    return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      timeoutsRef.current.forEach(clearTimeout)
-    }
-  }, [])
-
-  const clearAllTimeouts = () => {
-    timeoutsRef.current.forEach(clearTimeout)
-    timeoutsRef.current = []
-  }
+  const [lifecycleState, setLifecycleState] = useState<LifecycleState>('collapsed')
 
   const toggleExpansion = () => {
     if (lifecycleState === 'expanded') {
-      clearAllTimeouts()
-      setLifecycleState('idle')
-    } else if (lifecycleState === 'idle') {
-      setLifecycleState('requesting')
-
-      const t1 = window.setTimeout(() => {
-        setLifecycleState('validating')
-      }, 300)
-
-      const t2 = window.setTimeout(() => {
-        setLifecycleState('processing')
-      }, 700)
-
-      const t3 = window.setTimeout(() => {
-        setLifecycleState('expanded')
-      }, 1100)
-
-      timeoutsRef.current.push(t1, t2, t3)
+      setLifecycleState('collapsed')
     } else {
-      // If clicked during transition, cancel and collapse
-      clearAllTimeouts()
-      setLifecycleState('idle')
+      setLifecycleState('expanded')
     }
   }
 
-  const renderLoadingState = () => {
-    if (lifecycleState === 'idle' || lifecycleState === 'expanded') return null
-
-    return (
-      <div className={styles.loadingState}>
-        {lifecycleState === 'requesting' && '> INITIATING HANDSHAKE...'}
-        {lifecycleState === 'validating' && '> VERIFYING AUTHORIZATION...'}
-        {lifecycleState === 'processing' && '> ESTABLISHING DATA STREAM...'}
-      </div>
-    )
-  }
-
   const isExpanded = lifecycleState === 'expanded'
-  const isLoading =
-    lifecycleState === 'requesting' ||
-    lifecycleState === 'validating' ||
-    lifecycleState === 'processing'
 
   return (
     <div
@@ -81,29 +32,26 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       }}
       role="button"
       aria-expanded={isExpanded}
-      aria-busy={isLoading}
       tabIndex={0}
       aria-label={`Project: ${project.name}. Status: ${project.status}. ${
         isExpanded ? 'Click to collapse.' : 'Click to expand details.'
       }`}
-      className={`${styles.container} ${isExpanded || isLoading ? styles.containerActive : ''}`}
+      className={`${styles.container} ${isExpanded ? styles.containerActive : ''}`}
     >
       <div className={styles.header}>
         <h3
-          className={`${styles.title} ${isExpanded || isLoading ? styles.titleActive : ''}`}
+          className={`${styles.title} ${isExpanded ? styles.titleActive : ''}`}
         >
           {isExpanded ? '[v] ' : '[>] '}
           {project.name}
         </h3>
         <span className={styles.status}>
-          {project.status}
+          {project.duration}
         </span>
       </div>
       <p className={styles.summary}>
         {project.summary}
       </p>
-
-      {renderLoadingState()}
 
       {isExpanded && (
         <div
@@ -113,9 +61,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         >
           <div className={styles.detailRow}>
             <span className={styles.label}>ARCH_SUMMARY:</span> {project.architectureSummary}
-          </div>
-          <div className={styles.detailRow}>
-            <span className={styles.label}>BACKEND_FOCUS:</span> {project.backendFocus}
           </div>
           <div>
             <span className={styles.label}>RESPONSIBILITIES:</span>

@@ -17,10 +17,12 @@ const ActivityLogPanel: React.FC = () => {
             <span className={styles.timestamp}>[{log.timestampLabel}]</span>
             <span
               className={`${styles.category} ${
-                log.category === 'deployment'
+                log.category === 'work'
                   ? styles.categoryDeployment
-                  : log.category === 'learning'
+                  : log.category === 'education'
                     ? styles.categoryLearning
+                    : log.category === 'certification'
+                    ? styles.categoryCertification
                     : styles.categoryDefault
               }`}
             >

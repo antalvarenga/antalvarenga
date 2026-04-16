@@ -34,3 +34,7 @@
 .categoryDefault {
   color: var(--accent-yellow);
 }
+
+.categoryCertification {
+  color: var(--accent-purple);
+}
