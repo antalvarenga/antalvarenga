@@ -4,6 +4,7 @@ import IdentityPanel from '../components/IdentityPanel'
 import MetricsPanel from '../components/MetricsPanel'
 import ProjectsPanel from '../components/ProjectsPanel'
 import CapabilitiesPanel from '../components/CapabilitiesPanel'
+import InterestsPanel from '../components/InterestsPanel'
 import ActivityLogPanel from '../components/ActivityLogPanel'
 import CommandPalette from '../components/CommandPalette'
 import styles from './Dashboard.module.css'
@@ -76,6 +77,9 @@ const Dashboard: React.FC = () => {
             </div>
             <div id="capabilities">
               <CapabilitiesPanel />
+            </div>
+            <div id="interests">
+              <InterestsPanel />
             </div>
           </div>
           <div>

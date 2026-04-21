@@ -84,7 +84,7 @@ export const projects: Project[] = [
     capabilityIds: ['react-dev', 'frontend-arch', 'ux-design'],
   },
   {
-    id: 'beacon',
+    id: 'beacon-training',
     name: 'Beacon Red - Training Extensions (UAE)',
     summary: 'A platform to help in cybersecurity training.',
     duration: '1 year',

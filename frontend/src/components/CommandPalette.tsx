@@ -13,6 +13,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ onCommand }) => {
     { id: 'metrics', label: 'GOTO_METRICS' },
     { id: 'projects', label: 'GOTO_PROJECTS' },
     { id: 'capabilities', label: 'GOTO_CAPABILITIES' },
+    { id: 'interests', label: 'GOTO_INTERESTS' },
     { id: 'logs', label: 'GOTO_SYSTEM_LOGS' },
   ]
 

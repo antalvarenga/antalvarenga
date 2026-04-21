@@ -8,7 +8,7 @@ export const activityLogs: ActivityLogEntry[] = [
     message: 'Microsoft Azure AI Fundamentals',
   },
   {
-    id: 'log-1',
+    id: 'log-9',
     timestampLabel: '2022-07-01 09:00:00',
     category: 'work',
     message: 'Got promoted to Senior Software Engineer',

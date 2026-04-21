@@ -51,3 +51,13 @@ export interface DeveloperProfile {
   currentFocus: string
   status: 'online' | 'offline' | 'busy' | 'maintenance'
 }
+
+export type InterestCategory = 'show' | 'hobby' | 'music' | 'book' | 'other'
+
+export interface Interest {
+  id: string
+  label: string
+  category: InterestCategory
+  description?: string
+  icon?: string
+}
