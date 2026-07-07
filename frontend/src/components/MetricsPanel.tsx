@@ -29,9 +29,7 @@ const MetricsPanel: React.FC = () => {
           </div>
         ))}
       </div>
-      <div className={styles.legend}>
-        [*] PRIMARY_SYSTEM_CAPABILITY
-      </div>
+      <div className={styles.legend}>[*] PRIMARY_SYSTEM_CAPABILITY</div>
     </Panel>
   )
 }

@@ -24,7 +24,15 @@ export interface Project {
   capabilityIds: string[]
 }
 
-export type CapabilityType = 'Auth' | 'API' | 'Database' | 'Cache' | 'Frontend' | 'DevOps' | 'Other' | "Backend"
+export type CapabilityType =
+  | 'Auth'
+  | 'API'
+  | 'Database'
+  | 'Cache'
+  | 'Frontend'
+  | 'DevOps'
+  | 'Other'
+  | 'Backend'
 
 export interface CapabilityNode {
   id: string
@@ -50,6 +58,10 @@ export interface DeveloperProfile {
   yearsOfExperience: number
   currentFocus: string
   status: 'online' | 'offline' | 'busy' | 'maintenance'
+  email: string
+  linkedinUrl?: string
+  githubUrl?: string
+  websiteUrl?: string
 }
 
 export type InterestCategory = 'show' | 'hobby' | 'music' | 'book' | 'other'
@@ -57,7 +69,6 @@ export type InterestCategory = 'show' | 'hobby' | 'music' | 'book' | 'other'
 export interface Interest {
   id: string
   label: string
-  category: InterestCategory
   description?: string
   icon?: string
 }

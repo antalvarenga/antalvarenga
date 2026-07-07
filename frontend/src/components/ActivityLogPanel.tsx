@@ -22,8 +22,8 @@ const ActivityLogPanel: React.FC = () => {
                   : log.category === 'education'
                     ? styles.categoryLearning
                     : log.category === 'certification'
-                    ? styles.categoryCertification
-                    : styles.categoryDefault
+                      ? styles.categoryCertification
+                      : styles.categoryDefault
               }`}
             >
               {log.category}

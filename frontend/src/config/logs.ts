@@ -2,22 +2,28 @@ import type { ActivityLogEntry } from '../models/types'
 
 export const activityLogs: ActivityLogEntry[] = [
   {
+    id: 'log-10',
+    timestampLabel: '2026-06-03 09:00:00',
+    category: 'certification',
+    message: 'Microsoft Azure Administrator (AZ-104)',
+  },
+  {
     id: 'log-1',
     timestampLabel: '2026-01-15 12:00:00',
     category: 'certification',
-    message: 'Microsoft Azure AI Fundamentals',
+    message: 'Microsoft Azure AI Fundamentals (AI-900)',
   },
   {
     id: 'log-9',
     timestampLabel: '2022-07-01 09:00:00',
     category: 'work',
-    message: 'Got promoted to Senior Software Engineer',
+    message: 'Got promoted to Senior Software Engineer in Imaginary Cloud',
   },
   {
     id: 'log-2',
     timestampLabel: '2022-02-01 09:00:00',
     category: 'work',
-    message: 'Got promoted to Software Engineer',
+    message: 'Got promoted to Software Engineer in Imaginary Cloud',
   },
   {
     id: 'log-3',
@@ -29,7 +35,7 @@ export const activityLogs: ActivityLogEntry[] = [
     id: 'log-4',
     timestampLabel: '2020-01-01 09:00:00',
     category: 'work',
-    message: 'Got promoted to Consultant',
+    message: 'Got promoted to Consultant in everis',
   },
   {
     id: 'log-7',
@@ -41,7 +47,8 @@ export const activityLogs: ActivityLogEntry[] = [
     id: 'log-8',
     timestampLabel: '2017-01-01 09:00:00',
     category: 'other',
-    message: 'Internship at Inferenxe (Barreiro, Portugal), learned web development and participated in startup accelaration programs with two different projects.',
+    message:
+      'Internship at Inferenxe (Barreiro, Portugal), learned web development and participated in startup accelaration programs with two different projects.',
   },
   {
     id: 'log-5',

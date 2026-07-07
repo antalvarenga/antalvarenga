@@ -12,7 +12,6 @@ describe('InterestsPanel Component', () => {
     interests.forEach((interest, index) => {
       const item = listItems[index]
       expect(within(item).getByText(interest.label)).toBeInTheDocument()
-      expect(within(item).getByText(interest.category)).toBeInTheDocument()
       if (interest.description) {
         expect(within(item).getByText(interest.description)).toBeInTheDocument()
       }

@@ -3,7 +3,7 @@ import type { SkillMetric } from '../models/types'
 export const metrics: SkillMetric[] = [
   {
     id: 'python',
-    label: 'Python (4 years)',
+    label: 'Python',
     category: 'backend',
     level: 85,
     trend: 'up',
@@ -11,15 +11,15 @@ export const metrics: SkillMetric[] = [
   },
   {
     id: 'fast-api',
-    label: 'FastAPI (1 year)',
+    label: 'FastAPI',
     category: 'backend',
     level: 75,
     trend: 'up',
     isPrimary: true,
   },
   {
-  id: 'flask',
-    label: 'Flask (3 years)',
+    id: 'flask',
+    label: 'Flask',
     category: 'backend',
     level: 85,
     trend: 'steady',
@@ -27,7 +27,7 @@ export const metrics: SkillMetric[] = [
   },
   {
     id: 'postgresql',
-    label: 'PostgreSQL (6 years)',
+    label: 'PostgreSQL',
     category: 'backend',
     level: 90,
     trend: 'up',
@@ -35,7 +35,7 @@ export const metrics: SkillMetric[] = [
   },
   {
     id: 'docker-k8s',
-    label: 'Docker & Kubernetes (5 years)',
+    label: 'Docker & Kubernetes',
     category: 'devops',
     level: 70,
     trend: 'up',
@@ -43,7 +43,7 @@ export const metrics: SkillMetric[] = [
   },
   {
     id: 'prom-graf',
-    label: 'Prometheus & Grafana (1 year)',
+    label: 'Prometheus & Grafana',
     category: 'backend',
     level: 50,
     trend: 'up',
@@ -51,7 +51,7 @@ export const metrics: SkillMetric[] = [
   },
   {
     id: 'sentry',
-    label: 'Sentry (3 years)',
+    label: 'Sentry',
     category: 'backend',
     level: 50,
     trend: 'up',
@@ -59,7 +59,7 @@ export const metrics: SkillMetric[] = [
   },
   {
     id: 'redis',
-    label: 'Redis (4 years)',
+    label: 'Redis',
     category: 'backend',
     level: 70,
     trend: 'up',
@@ -67,7 +67,15 @@ export const metrics: SkillMetric[] = [
   },
   {
     id: 'react',
-    label: 'React (1 year)',
+    label: 'React',
+    category: 'frontend',
+    level: 65,
+    trend: 'steady',
+    isPrimary: false,
+  },
+  {
+    id: 'html-css',
+    label: 'HTML & CSS',
     category: 'frontend',
     level: 65,
     trend: 'steady',
@@ -75,7 +83,7 @@ export const metrics: SkillMetric[] = [
   },
   {
     id: 'node-js',
-    label: 'Node.js / TypeScript (1 year)',
+    label: 'Node.js / TypeScript',
     category: 'backend',
     level: 60,
     trend: 'down',
@@ -83,7 +91,7 @@ export const metrics: SkillMetric[] = [
   },
   {
     id: 'elixir',
-    label: 'Elixir / Phoenix (2 years)',
+    label: 'Elixir / Phoenix',
     category: 'backend',
     level: 40,
     trend: 'down',
@@ -91,7 +99,7 @@ export const metrics: SkillMetric[] = [
   },
   {
     id: 'java',
-    label: 'Java (6 months)',
+    label: 'Java',
     category: 'backend',
     level: 25,
     trend: 'steady',

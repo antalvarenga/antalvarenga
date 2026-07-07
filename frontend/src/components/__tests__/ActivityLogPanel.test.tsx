@@ -7,7 +7,7 @@ describe('ActivityLogPanel Component', () => {
   it('renders all log entries', () => {
     render(<ActivityLogPanel />)
     activityLogs.forEach((log) => {
-      expect(screen.getByText(new RegExp(log.message))).toBeInTheDocument()
+      expect(screen.getByText(log.message)).toBeInTheDocument()
     })
   })
 })

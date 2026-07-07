@@ -2,25 +2,23 @@ import type { CapabilityNode } from '../models/types'
 
 export const capabilities: CapabilityNode[] = [
   {
-    id: 'api-design',
-    label: 'API Design',
-    type: 'API',
+    id: 'agile-dev',
+    label: 'Agile Development',
+    type: 'Other',
     description:
-      'Designing RESTful APIs with focus on developer experience and scalability.',
+      'Comfortable in working in fast-paced, Agile & Scrum environments, with frequent requirement changes',
   },
   {
     id: 'agentic',
     label: 'Agentic Development',
     type: 'Other',
-    description:
-      'Using AI tools and agents to ship features fast.',
+    description: 'Using AI tools and agents to ship features fast.',
   },
   {
     id: 'tdd',
     label: 'Test Driven Development',
     type: 'Other',
-    description:
-      'Building robust software with integration tests to optimize speed and coverage',
+    description: 'Building robust software with integration tests to optimize speed and coverage',
   },
   {
     id: 'automation',
@@ -32,18 +30,26 @@ export const capabilities: CapabilityNode[] = [
     id: 'mvc',
     label: 'MVC',
     type: 'Backend',
-    description: 'Building backends using Model-View-Controller arquitecture for simplicity and structure',
+    description:
+      'Building backends using Model-View-Controller arquitecture for simplicity and structure',
   },
   {
-    id: 'schedulers',
-    label: 'Schedulers',
+    id: 'event-driven',
+    label: 'Event-driven arquitecture',
     type: 'Backend',
-    description: 'Building schedulers to run tasks robustly using Python APScheduler and database utilities.',
+    description: 'Building fault-tolerant, scalable solutions with event-driven design.',
   },
   {
     id: 'backround-jobs',
     label: 'Background jobs',
     type: 'Backend',
-    description: 'Developing orquestrated background workers using Python Celery to perform complex, time-consuming tasks.',
+    description:
+      'Developing orquestrated background workers using Python Celery to perform complex asynchronous tasks.',
+  },
+  {
+    id: 'languages',
+    label: 'Languages',
+    type: 'Other',
+    description: 'Portuguese - Native; English - Fluent; Spanish - Basic',
   },
 ]

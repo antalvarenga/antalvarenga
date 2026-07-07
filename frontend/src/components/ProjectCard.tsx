@@ -39,26 +39,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       className={`${styles.container} ${isExpanded ? styles.containerActive : ''}`}
     >
       <div className={styles.header}>
-        <h3
-          className={`${styles.title} ${isExpanded ? styles.titleActive : ''}`}
-        >
+        <h3 className={`${styles.title} ${isExpanded ? styles.titleActive : ''}`}>
           {isExpanded ? '[v] ' : '[>] '}
           {project.name}
         </h3>
-        <span className={styles.status}>
-          {project.duration}
-        </span>
+        <span className={styles.status}>{project.duration}</span>
       </div>
-      <p className={styles.summary}>
-        {project.summary}
-      </p>
+      <p className={styles.summary}>{project.summary}</p>
 
       {isExpanded && (
-        <div
-          role="region"
-          aria-label={`${project.name} details`}
-          className={styles.details}
-        >
+        <div role="region" aria-label={`${project.name} details`} className={styles.details}>
           <div className={styles.detailRow}>
             <span className={styles.label}>ARCH_SUMMARY:</span> {project.architectureSummary}
           </div>
@@ -77,4 +67,3 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 }
 
 export default ProjectCard
-

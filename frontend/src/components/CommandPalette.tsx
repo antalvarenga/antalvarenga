@@ -35,11 +35,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ onCommand }) => {
       </button>
 
       {isOpen && (
-        <div
-          role="menu"
-          aria-label="System commands"
-          className={styles.menu}
-        >
+        <div role="menu" aria-label="System commands" className={styles.menu}>
           {commands.map((cmd) => (
             <button
               key={cmd.id}

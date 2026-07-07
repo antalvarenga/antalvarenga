@@ -7,14 +7,14 @@ describe('ProjectsPanel Component', () => {
   it('renders all projects', () => {
     render(<ProjectsPanel />)
     projects.forEach((project) => {
-      expect(screen.getByText(new RegExp(project.name))).toBeInTheDocument()
+      expect(screen.getByText(project.name, { exact: false })).toBeInTheDocument()
     })
   })
 
   it('expands project details on click', async () => {
     render(<ProjectsPanel />)
     const firstProject = projects[0]
-    const projectElement = screen.getByText(new RegExp(firstProject.name))
+    const projectElement = screen.getByText(firstProject.name, { exact: false })
 
     // Initially summary is visible, responsibilities might not be (depending on implementation)
     expect(screen.getByText(firstProject.summary)).toBeInTheDocument()
@@ -24,8 +24,13 @@ describe('ProjectsPanel Component', () => {
 
     // Check for architecture summary which should be visible now
     // We wait for the simulated request lifecycle to complete (~1.1s)
-    await waitFor(() => {
-      expect(screen.getByText(new RegExp(firstProject.architectureSummary, 'i'))).toBeInTheDocument()
-    }, { timeout: 2000 })
+    await waitFor(
+      () => {
+        expect(
+          screen.getByText(new RegExp(firstProject.architectureSummary, 'i')),
+        ).toBeInTheDocument()
+      },
+      { timeout: 2000 },
+    )
   })
 })

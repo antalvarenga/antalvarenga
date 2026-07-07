@@ -1,5 +1,5 @@
-import { render, screen, fireEvent, act } from '@testing-library/react'
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { render, screen, fireEvent } from '@testing-library/react'
+import { describe, it, expect } from 'vitest'
 import ProjectCard from '../ProjectCard'
 import type { Project } from '../../models/types'
 
@@ -11,52 +11,29 @@ const mockProject: Project = {
   architectureSummary: 'Microservices',
   backendFocus: 'High',
   responsibilities: ['Dev', 'Ops'],
-  capabilityIds: ['api-design', 'cli-dev', 'automation']
+  capabilityIds: ['api-design', 'cli-dev', 'automation'],
 }
 
 describe('ProjectCard Component', () => {
-  beforeEach(() => {
-    vi.useFakeTimers()
-  })
-
-  afterEach(() => {
-    vi.useRealTimers()
-  })
-
-  it('renders correctly in idle state', () => {
+  it('renders correctly in collapsed state', () => {
     render(<ProjectCard project={mockProject} />)
     expect(screen.getByText(/Test Project/)).toBeInTheDocument()
-    expect(screen.queryByText(/INITIATING HANDSHAKE/)).not.toBeInTheDocument()
     expect(screen.queryByText(/Microservices/)).not.toBeInTheDocument()
   })
 
-  it('goes through lifecycle states on click', () => {
+  it('toggles expansion state on click', () => {
     render(<ProjectCard project={mockProject} />)
-    
-    // Click to start expansion
-    fireEvent.click(screen.getByRole('button'))
 
-    // Requesting
-    expect(screen.getByText(/INITIATING HANDSHAKE/)).toBeInTheDocument()
-    expect(screen.queryByText(/Microservices/)).not.toBeInTheDocument()
+    const button = screen.getByRole('button')
 
-    // Validating (after 300ms)
-    act(() => {
-      vi.advanceTimersByTime(300)
-    })
-    expect(screen.getByText(/VERIFYING AUTHORIZATION/)).toBeInTheDocument()
-
-    // Processing (after another 400ms -> 700ms total)
-    act(() => {
-      vi.advanceTimersByTime(400)
-    })
-    expect(screen.getByText(/ESTABLISHING DATA STREAM/)).toBeInTheDocument()
-
-    // Expanded (after another 400ms -> 1100ms total)
-    act(() => {
-      vi.advanceTimersByTime(400)
-    })
-    expect(screen.queryByText(/ESTABLISHING DATA STREAM/)).not.toBeInTheDocument()
+    // Click to expand
+    fireEvent.click(button)
     expect(screen.getByText(/Microservices/)).toBeInTheDocument()
+    expect(screen.getByText(/Dev/)).toBeInTheDocument()
+    expect(screen.getByText(/Ops/)).toBeInTheDocument()
+
+    // Click to collapse
+    fireEvent.click(button)
+    expect(screen.queryByText(/Microservices/)).not.toBeInTheDocument()
   })
 })

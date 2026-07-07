@@ -38,21 +38,14 @@ const Dashboard: React.FC = () => {
         aria-label="Loading dashboard"
         className={styles.loadingScreen}
       >
-        <div
-          className={`skeleton ${styles.skeletonHeader}`}
-          aria-hidden="true"
-        ></div>
+        <div className={`skeleton ${styles.skeletonHeader}`} aria-hidden="true"></div>
         <div className={styles.grid}>
           <div>
-            <div
-              className={`skeleton ${styles.skeletonSmall} ${styles.skeletonBlock}`}
-            ></div>
+            <div className={`skeleton ${styles.skeletonSmall} ${styles.skeletonBlock}`}></div>
             <div className={`skeleton ${styles.skeletonMedium}`}></div>
           </div>
           <div>
-            <div
-              className={`skeleton ${styles.skeletonLarge} ${styles.skeletonBlock}`}
-            ></div>
+            <div className={`skeleton ${styles.skeletonLarge} ${styles.skeletonBlock}`}></div>
             <div className={`skeleton ${styles.skeletonSmall}`}></div>
           </div>
         </div>
@@ -61,10 +54,7 @@ const Dashboard: React.FC = () => {
   }
 
   return (
-    <div
-      data-testid="dashboard-page"
-      className={styles.dashboard}
-    >
+    <div data-testid="dashboard-page" className={styles.dashboard}>
       <Header />
       <main className={styles.main}>
         <div className={styles.grid}>

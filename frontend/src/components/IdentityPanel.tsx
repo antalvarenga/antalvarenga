@@ -6,11 +6,7 @@ import styles from './IdentityPanel.module.css'
 const IdentityPanel: React.FC = () => {
   return (
     <Panel title="IDENTITY_SCAN">
-      <div
-        role="region"
-        aria-label="Developer Identity Metadata"
-        className={styles.grid}
-      >
+      <div role="region" aria-label="Developer Identity Metadata" className={styles.grid}>
         <span className={styles.label} id="label-location">
           LOCATION:
         </span>

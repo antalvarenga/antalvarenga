@@ -6,17 +6,9 @@ import styles from './InterestsPanel.module.css'
 const InterestsPanel: React.FC = () => {
   return (
     <Panel title="INTERESTS_LOG">
-      <div
-        role="list"
-        aria-label="Personal Interests"
-        className={styles.grid}
-      >
+      <div role="list" aria-label="Personal Interests" className={styles.grid}>
         {interests.map((interest) => (
-          <div
-            key={interest.id}
-            role="listitem"
-            className={styles.item}
-          >
+          <div key={interest.id} role="listitem" className={styles.item}>
             {interest.icon && (
               <div className={styles.icon} aria-hidden="true">
                 {interest.icon}
@@ -27,9 +19,7 @@ const InterestsPanel: React.FC = () => {
                 <span className={styles.label}>{interest.label}</span>
               </div>
               {interest.description && (
-                <div className={styles.description}>
-                  {interest.description}
-                </div>
+                <div className={styles.description}>{interest.description}</div>
               )}
             </div>
           </div>
