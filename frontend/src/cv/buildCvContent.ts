@@ -83,12 +83,7 @@ function buildSkillGroups(): CvContent['skillGroups'] {
 }
 
 function buildSummary(): string {
-  return `${profile.primaryRole} with ${profile.yearsOfExperience}+ years of experience \
-designing scalable backend systems, REST APIs, and \
-distributed applications. Experienced leading backend development, \
-collaborating directly with clients, and delivering cloud-native \
-solutions across cybersecurity, logistics, proptech and data platforms. \
-Primary expertise in Python, FastAPI, PostgreSQL, Docker.`
+  return `${profile.primaryRole} with ${profile.yearsOfExperience}+ years of experience building web applications across the full stack, with a strong focus on backend engineering over the last 4 years. Experienced in designing scalable backend systems, REST APIs, and distributed applications, leading backend development, collaborating directly with clients, and delivering cloud-native solutions across cybersecurity, logistics, proptech, and data platforms. Primary expertise includes Python, FastAPI, PostgreSQL, and Docker, with the ability to contribute across the full stack when needed.`
 }
 
 export function buildCvContent(): CvContent {
